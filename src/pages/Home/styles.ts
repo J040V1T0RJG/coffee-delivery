@@ -16,4 +16,9 @@ export const HomeContainer = styled.main`
 
     color: ${(props) => props.theme['base-subtitle']};
   }
+  .coffeeCardList {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+  }
 `

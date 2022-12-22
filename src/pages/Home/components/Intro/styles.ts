@@ -8,6 +8,7 @@ export const IntroContainer = styled.section`
 
   margin-top: 5.875rem;
   margin-bottom: 7.875rem;
+  //background-image: url(http://localhost:5173/src/assets/backgroundImage.svg);
 
   width: auto;
   height: auto;

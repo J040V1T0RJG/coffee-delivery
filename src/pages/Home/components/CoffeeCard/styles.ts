@@ -8,12 +8,19 @@ export const CoffeeCardContainer = styled.div`
   width: 16rem;
   height: 19.375rem;
   border-radius: 6px 36px;
+  margin-bottom: 2.5rem;
 
   background: ${(props) => props.theme['base-card']};
 
   img {
     margin-bottom: 0.75rem;
     margin-top: calc(0px - 1.25rem);
+  }
+
+  .coffeeTypeList {
+    display: flex;
+    flex-direction: row;
+    gap: 0.125rem;
   }
 
   .coffeeType {
@@ -36,6 +43,7 @@ export const CoffeeCardContainer = styled.div`
     line-height: 130%;
 
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   h1 {

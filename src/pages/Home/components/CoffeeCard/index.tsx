@@ -1,14 +1,27 @@
 import { CoffeeCardContainer, CoffeeCardForm } from './styles'
-import americano from '../../../../assets/americano.svg'
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { CoffeeDataInterface } from '../../../../data/coffeeData'
 
-export function CoffeeCard() {
+export function CoffeeCard(coffeeProps: CoffeeDataInterface) {
+  const { description, image, name, priceInCents, type } = coffeeProps
+
   return (
     <CoffeeCardContainer>
-      <img src={americano} alt="expresso americano" />
-      <div className="coffeeType">TRADICIONAL</div>
-      <h1>Expresso Americano</h1>
-      <h2>Expresso diluído, menos intenso que o tradicional</h2>
+      <img
+        src={`http://localhost:5173/src/assets/${image}`}
+        alt="expresso americano"
+      />
+      <div className="coffeeTypeList">
+        {type.map((typ) => {
+          return (
+            <div key={typ} className="coffeeType">
+              {typ.toLowerCase()}
+            </div>
+          )
+        })}
+      </div>
+      <h1>{name}</h1>
+      <h2>{description}</h2>
       <span>
         <p>
           R$ <strong>9,90</strong>
