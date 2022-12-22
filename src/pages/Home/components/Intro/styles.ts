@@ -7,6 +7,7 @@ export const IntroContainer = styled.section`
   align-items: center;
 
   margin-top: 5.875rem;
+  margin-bottom: 7.875rem;
 
   width: auto;
   height: auto;
