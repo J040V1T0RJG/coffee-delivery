@@ -125,6 +125,7 @@ export const CustomerDataFormContainer = styled.div`
           color: ${(props) => props.theme['purple-dark']};
           border-radius: 6px;
           border: none;
+          cursor: pointer;
 
           &:focus {
             box-shadow: 0 0 0 2px ${(props) => props.theme['purple-dark']};

@@ -8,6 +8,7 @@ export function CoffeeCard(coffeeProps: CoffeeDataInterface) {
   return (
     <CoffeeCardContainer>
       <img
+        sizes="64"
         src={`http://localhost:5173/src/assets/${image}`}
         alt="expresso americano"
       />
