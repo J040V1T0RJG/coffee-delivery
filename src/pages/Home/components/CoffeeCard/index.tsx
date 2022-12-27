@@ -1,9 +1,17 @@
 import { CoffeeCardContainer, CoffeeCardForm } from './styles'
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { CoffeeDataInterface } from '../../../../data/coffeeData'
+import { useContext } from 'react'
+import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 
 export function CoffeeCard(coffeeProps: CoffeeDataInterface) {
   const { description, image, name, priceInCents, type } = coffeeProps
+  const { popularShoppingCartData, shoppingCart } = useContext(CoffeeContext)
+
+  function handleAddToShoppingCart(coffee: CoffeeDataInterface) {
+    popularShoppingCartData(coffee)
+    console.log('entrou')
+  }
 
   return (
     <CoffeeCardContainer>
@@ -33,7 +41,10 @@ export function CoffeeCard(coffeeProps: CoffeeDataInterface) {
             <p>1</p>
             <Plus weight="bold" className="plus" />
           </div>
-          <div className="buttonShoppingCart">
+          <div
+            className="buttonShoppingCart"
+            onClick={() => handleAddToShoppingCart(coffeeProps)}
+          >
             <ShoppingCart size={22} weight="fill" />
           </div>
         </CoffeeCardForm>
