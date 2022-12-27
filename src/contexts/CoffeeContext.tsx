@@ -48,7 +48,6 @@ export function CoffeeContextProvider({
   }, [])
 
   const [shoppingCart, setShoppingCart] = useState<CoffeeDataInterface[]>([])
-
   const [userAddress, setUserAddress] =
     useState<UserAddressDataInterface | null>(null)
 
@@ -70,16 +69,13 @@ export function CoffeeContextProvider({
 
       for (let i = 0; i < shoppingCart.length; i++) {
         if (i === findRepeatedShoppingCartIndex) {
-          const tempArray = {
-            image: shoppingCart[i].image,
-            type: shoppingCart[i].type,
-            name: shoppingCart[i].name,
-            description: shoppingCart[i].description,
-            priceInCents: shoppingCart[i].priceInCents,
-            amountOfCoffees:
-              shoppingCart[i].amountOfCoffees + cart.amountOfCoffees,
-          }
-          modifiedShoppingCart.push(tempArray)
+          const newAmountOfCoffees =
+            shoppingCart[i].amountOfCoffees + cart.amountOfCoffees
+
+          modifiedShoppingCart.push({
+            ...shoppingCart[i],
+            amountOfCoffees: newAmountOfCoffees,
+          })
         } else {
           modifiedShoppingCart.push(shoppingCart[i])
         }

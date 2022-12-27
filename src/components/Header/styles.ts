@@ -43,6 +43,7 @@ export const HeaderContainer = styled.header`
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
 
         width: 2.375rem;
         height: 2.375rem;
@@ -54,6 +55,29 @@ export const HeaderContainer = styled.header`
         &:hover {
           background: ${(props) => props.theme.yellow};
           color: ${(props) => props.theme['yellow-light']};
+        }
+
+        .checkoutCounter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+
+          top: -0.5rem;
+          right: -0.5rem;
+
+          width: 1.25rem;
+          height: 1.25rem;
+          border-radius: 50%;
+
+          background: ${(props) => props.theme['yellow-dark']};
+          color: ${(props) => props.theme.white};
+
+          font-family: 'Roboto';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 0.75rem;
+          letter-spacing: -0.06em;
         }
       }
     }
