@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
+
 import { CoffeeDataInterface } from '../data/coffeeData'
 
 interface CoffeeContextProviderProps {
@@ -9,10 +10,11 @@ interface UserAddressDataInterface {
   cep: number
   street: string
   houseNumber: number
-  houseComplement?: string
+  houseComplement: string | null
   neighborhood: string
   city: string
   state: string
+  payment: string
 }
 
 interface CreateContextType {
@@ -21,6 +23,7 @@ interface CreateContextType {
   popularShoppingCartData: (cart: CoffeeDataInterface) => void
   fillInUserAddressData: (address: UserAddressDataInterface) => void
   removeCoffee: (cart: CoffeeDataInterface) => void
+  cleanShoppingCart: () => void
 }
 
 interface LocalStoredInterface {
@@ -107,6 +110,10 @@ export function CoffeeContextProvider({
     }
   }
 
+  function cleanShoppingCart() {
+    setShoppingCart([])
+  }
+
   useEffect(() => {
     const stateJSON = JSON.stringify({ shoppingCart, userAddress })
 
@@ -124,6 +131,7 @@ export function CoffeeContextProvider({
         popularShoppingCartData,
         fillInUserAddressData,
         removeCoffee,
+        cleanShoppingCart,
       }}
     >
       {children}

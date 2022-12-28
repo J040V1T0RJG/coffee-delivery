@@ -5,14 +5,54 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
+import { useContext } from 'react'
 
 import { CustomerDataFormContainer } from './styles'
+import { CoffeeContext } from '../../../../contexts/CoffeeContext'
+
+const newAddressFormValidationSchema = zod.object({
+  cep: zod.number(),
+  street: zod.string(),
+  houseNumber: zod.number().min(1),
+  houseComplement: zod.string().nullable(),
+  neighborhood: zod.string(),
+  city: zod.string(),
+  state: zod.string().length(2),
+  payment: zod.string(),
+})
+
+type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 
 export function CustomerDataForm() {
+  const { userAddress, fillInUserAddressData } = useContext(CoffeeContext)
+
+  const newAddressForm = useForm<NewAddressFormData>({
+    resolver: zodResolver(newAddressFormValidationSchema),
+    defaultValues: {
+      cep: userAddress?.cep || NaN,
+      street: userAddress?.street || '',
+      houseNumber: userAddress?.houseNumber || NaN,
+      houseComplement: userAddress?.houseComplement || null,
+      neighborhood: userAddress?.neighborhood || '',
+      city: userAddress?.city || '',
+      state: userAddress?.state || '',
+      payment: userAddress?.payment || '',
+    },
+  })
+
+  const { register, handleSubmit } = newAddressForm
+
+  function handleSubmitAddress(data: NewAddressFormData) {
+    fillInUserAddressData(data)
+  }
+
   return (
     <CustomerDataFormContainer>
       <h1>Complete seu pedido</h1>
-      <form>
+      <form onSubmit={handleSubmit(handleSubmitAddress)}>
         <div className="deliveryAddressForm">
           <div className="headerSubtitle">
             <MapPinLine size={22} />
@@ -23,47 +63,72 @@ export function CustomerDataForm() {
           </div>
           <div className="inputs">
             <input
-              type="text"
+              id="cep"
+              type="number"
               placeholder="CEP"
               required
-              pattern="\d{5}-\d{3}"
+              height={8}
               className="averageSize"
+              value={userAddress?.cep}
+              {...register('cep', { valueAsNumber: true })}
             />
-            <input type="text" placeholder="Rua" required />
+            <input
+              id="street"
+              type="text"
+              placeholder="Rua"
+              required
+              value={userAddress?.street}
+              {...register('street')}
+            />
             <div className="row">
               <input
+                id="houseNumber"
                 type="number"
                 min={1}
                 placeholder="Número"
                 required
                 className="averageSize"
+                value={userAddress?.houseNumber}
+                {...register('houseNumber', { valueAsNumber: true })}
               />
               <input
+                id="houseComplement"
                 type="text"
                 placeholder="Complemento"
                 className="automaticSize"
+                value={userAddress?.houseComplement || ''}
+                {...register('houseComplement')}
               />
               <p>Opcional</p>
             </div>
             <div className="row">
               <input
+                id="neighborhood"
                 type="text"
                 placeholder="Bairro"
                 required
                 className="averageSize"
+                value={userAddress?.neighborhood}
+                {...register('neighborhood')}
               />
               <input
+                id="city"
                 type="text"
                 placeholder="Cidade"
                 required
                 className="automaticSize"
+                value={userAddress?.city}
+                {...register('city')}
               />
               <input
+                id="state"
                 type="text"
                 maxLength={2}
                 placeholder="UF"
                 required
                 className="smallSize"
+                value={userAddress?.state}
+                {...register('state')}
               />
             </div>
           </div>
@@ -79,17 +144,44 @@ export function CustomerDataForm() {
             </div>
           </div>
           <span className="paymentButtons">
-            <button>
+            <button
+              type="submit"
+              value="Cartão de crédito"
+              onClick={handleSubmit((data) => {
+                handleSubmitAddress({
+                  ...data,
+                  payment: 'Cartão de crédito',
+                })
+              })}
+            >
               <CreditCard />
               <p>Cartão de crédito</p>
             </button>
-            <button>
+            <button
+              type="submit"
+              value="Cartão de débito"
+              onClick={handleSubmit((data) => {
+                handleSubmitAddress({
+                  ...data,
+                  payment: 'Cartão de débito',
+                })
+              })}
+            >
               <Bank />
-              <p>Cartão de crédito</p>
+              <p>Cartão de débito</p>
             </button>
-            <button>
+            <button
+              type="submit"
+              value="Dinheiro"
+              onClick={handleSubmit((data) => {
+                handleSubmitAddress({
+                  ...data,
+                  payment: 'Dinheiro',
+                })
+              })}
+            >
               <Money />
-              <p>Cartão de crédito</p>
+              <p>Dinheiro</p>
             </button>
           </span>
         </div>

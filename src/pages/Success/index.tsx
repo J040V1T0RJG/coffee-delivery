@@ -1,9 +1,12 @@
-import { SuccessContainer } from './styles'
-
-import illustration from '../../assets/illustration.svg'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext } from 'react'
+
+import { SuccessContainer } from './styles'
+import illustration from '../../assets/illustration.svg'
+import { CoffeeContext } from '../../contexts/CoffeeContext'
 
 export function Success() {
+  const { userAddress } = useContext(CoffeeContext)
   return (
     <SuccessContainer>
       <section>
@@ -16,9 +19,14 @@ export function Success() {
             </div>
             <div className="text">
               <p>
-                Entrega em <strong> Rua João Daniel Martinelli, 102</strong>
+                Entrega em{' '}
+                <strong>
+                  {' '}
+                  {userAddress?.street}, {userAddress?.houseNumber}
+                </strong>
                 <br />
-                Farrapos - Porto Alegre, RS
+                {userAddress?.neighborhood} - {userAddress?.city},{' '}
+                {userAddress?.state.toUpperCase()}
               </p>
             </div>
           </div>
@@ -38,7 +46,7 @@ export function Success() {
             </div>
             <div className="text">
               Pagamento na entrega <br />
-              <strong>Cartão de Crédito</strong>
+              <strong>{userAddress?.payment}</strong>
             </div>
           </div>
         </div>

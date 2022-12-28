@@ -1,7 +1,8 @@
-import { CoffeeCardContainer, CoffeeCardForm } from './styles'
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import { CoffeeDataInterface } from '../../../../data/coffeeData'
 import { useContext, useState } from 'react'
+
+import { CoffeeDataInterface } from '../../../../data/coffeeData'
+import { CoffeeCardContainer, CoffeeCardForm } from './styles'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 import { convertCentsToReal } from '../../../../utils'
 
