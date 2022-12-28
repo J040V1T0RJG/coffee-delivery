@@ -4,6 +4,7 @@ export interface CoffeeDataInterface {
   name: string
   description: string
   priceInCents: number
+  amountOfCoffees: number
 }
 
 export const coffeeData: CoffeeDataInterface[] = [
@@ -13,6 +14,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'expresso-americano.svg',
@@ -20,6 +22,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'expresso-cremoso.svg',
@@ -27,6 +30,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'expresso-gelado.svg',
@@ -34,6 +38,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'cafe-com-leite.svg',
@@ -41,6 +46,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'latte.svg',
@@ -49,6 +55,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'capuccino.svg',
@@ -57,6 +64,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'macchiato.svg',
@@ -65,6 +73,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'mocaccino.svg',
@@ -72,6 +81,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'chocolate-quente.svg',
@@ -79,6 +89,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'cubano.svg',
@@ -87,6 +98,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'havaiano.svg',
@@ -94,6 +106,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'arabe.svg',
@@ -101,6 +114,7 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
   {
     image: 'irlandes.svg',
@@ -108,5 +122,6 @@ export const coffeeData: CoffeeDataInterface[] = [
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     priceInCents: 990,
+    amountOfCoffees: 1,
   },
 ]

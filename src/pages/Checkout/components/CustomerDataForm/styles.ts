@@ -113,6 +113,7 @@ export const CustomerDataFormContainer = styled.div`
       .paymentButtons {
         display: flex;
         justify-content: space-between;
+        gap: 0.75rem;
 
         button {
           display: flex;
@@ -120,6 +121,7 @@ export const CustomerDataFormContainer = styled.div`
           align-items: center;
           padding: 1rem;
           gap: 0.75rem;
+          width: 100%;
 
           background: ${(props) => props.theme['base-button']};
           color: ${(props) => props.theme['purple-dark']};
