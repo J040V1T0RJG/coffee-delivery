@@ -20,6 +20,7 @@ interface CreateContextType {
   userAddress: UserAddressDataInterface | null
   popularShoppingCartData: (cart: CoffeeDataInterface) => void
   fillInUserAddressData: (address: UserAddressDataInterface) => void
+  removeCoffee: (cart: CoffeeDataInterface) => void
 }
 
 interface LocalStoredInterface {
@@ -69,8 +70,7 @@ export function CoffeeContextProvider({
 
       for (let i = 0; i < shoppingCart.length; i++) {
         if (i === findRepeatedShoppingCartIndex) {
-          const newAmountOfCoffees =
-            shoppingCart[i].amountOfCoffees + cart.amountOfCoffees
+          const newAmountOfCoffees = cart.amountOfCoffees
 
           modifiedShoppingCart.push({
             ...shoppingCart[i],
@@ -91,6 +91,22 @@ export function CoffeeContextProvider({
     setUserAddress(address)
   }
 
+  function removeCoffee(cart: CoffeeDataInterface) {
+    const findCoffeeIndex = shoppingCart.findIndex(
+      (coffe) => coffe.name === cart.name,
+    )
+    if (findCoffeeIndex !== -1) {
+      const modifiedShoppingCart: CoffeeDataInterface[] = []
+
+      for (let i = 0; i < shoppingCart.length; i++) {
+        if (i !== findCoffeeIndex) {
+          modifiedShoppingCart.push(shoppingCart[i])
+        }
+      }
+      setShoppingCart(modifiedShoppingCart)
+    }
+  }
+
   useEffect(() => {
     const stateJSON = JSON.stringify({ shoppingCart, userAddress })
 
@@ -107,6 +123,7 @@ export function CoffeeContextProvider({
         userAddress,
         popularShoppingCartData,
         fillInUserAddressData,
+        removeCoffee,
       }}
     >
       {children}

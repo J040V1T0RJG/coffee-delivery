@@ -84,6 +84,10 @@ export const SelectedCafesContainer = styled.div`
       &:hover {
         background: ${(props) => props.theme['yellow-dark']};
       }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
     }
   }
 `

@@ -1,11 +1,13 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 import { convertCentsToReal } from '../../../../utils'
 import { ShoppingCartCafe } from '../ShoppingCartCafeCard'
 import { SelectedCafesContainer } from './styles'
 
 export function SelectedCafes() {
-  const { shoppingCart } = useContext(CoffeeContext)
+  const navigate = useNavigate()
+  const { shoppingCart, userAddress } = useContext(CoffeeContext)
 
   function calculatesTheTotalPriceOfTheItems() {
     let total: number = 0
@@ -15,6 +17,10 @@ export function SelectedCafes() {
     }
 
     return total
+  }
+
+  function handleConfirmOrder() {
+    navigate('/success')
   }
 
   return (
@@ -46,7 +52,12 @@ export function SelectedCafes() {
               : '00,00'}
           </p>
         </span>
-        <button>confirmar pedido</button>
+        <button
+          disabled={(shoppingCart.length > 0 && !!userAddress) === false}
+          onSubmit={() => handleConfirmOrder()}
+        >
+          confirmar pedido
+        </button>
       </div>
     </SelectedCafesContainer>
   )

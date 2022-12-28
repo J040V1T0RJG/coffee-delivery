@@ -13,13 +13,43 @@ export function ShoppingCartCafe(coffee: CoffeeDataInterface) {
   const [totalPriceInCentsState, setTotalPriceInCentsState] = useState(
     priceInCents * amountOfCoffees,
   )
-  const { popularShoppingCartData } = useContext(CoffeeContext)
+  const { popularShoppingCartData, removeCoffee } = useContext(CoffeeContext)
 
-  // function handleRemoveCoffee(nameOfCafeToBeRemoved: string) {
-  //   const findRepeatedShoppingCartIndex = shoppingCart.findIndex(
-  //     (coffe) => coffe.name === cart.name,
-  //   )
-  // }
+  function handleIncreaseAmountOfCoffee() {
+    setAmountOfCoffeesState((state) => {
+      popularShoppingCartData({
+        ...coffee,
+        amountOfCoffees: state + 1,
+      })
+
+      setTotalPriceInCentsState(priceInCents * (state + 1))
+
+      return state + 1
+    })
+  }
+
+  function handleDecreaseAmountOfCoffee() {
+    if (amountOfCoffeesState > 1) {
+      setAmountOfCoffeesState((state) => {
+        popularShoppingCartData({
+          ...coffee,
+          amountOfCoffees: state - 1,
+        })
+
+        setTotalPriceInCentsState(priceInCents * (state - 1))
+
+        return state - 1
+      })
+    } else {
+      if (confirm(`Deseja remover o ${name}`) === true) {
+        handleRemoveCoffee()
+      }
+    }
+  }
+
+  function handleRemoveCoffee() {
+    removeCoffee(coffee)
+  }
 
   return (
     <ShoppingCartCafeContainer>
@@ -28,11 +58,19 @@ export function ShoppingCartCafe(coffee: CoffeeDataInterface) {
         <h2>{name}</h2>
         <div className="row">
           <div className="buttonMinusAndPlus">
-            <Minus weight="bold" className="minus" />
+            <Minus
+              weight="bold"
+              className="minus"
+              onClick={() => handleDecreaseAmountOfCoffee()}
+            />
             <p>{amountOfCoffeesState}</p>
-            <Plus weight="bold" className="plus" />
+            <Plus
+              weight="bold"
+              className="plus"
+              onClick={() => handleIncreaseAmountOfCoffee()}
+            />
           </div>
-          <button>
+          <button onClick={() => handleRemoveCoffee()}>
             <Trash />
             <p>Remover</p>
           </button>
