@@ -9,7 +9,8 @@ export interface CoffeeDataInterface {
 
 export const coffeeData: CoffeeDataInterface[] = [
   {
-    image: 'expresso-tradicional.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/expresso-tradicional.svg',
     type: ['Tradicional'],
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
@@ -17,7 +18,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'expresso-americano.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/expresso-americano.svg',
     type: ['Tradicional'],
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
@@ -25,7 +27,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'expresso-cremoso.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/expresso-cremoso.svg',
     type: ['Tradicional'],
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
@@ -33,7 +36,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'expresso-gelado.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/expresso-gelado.svg',
     type: ['Tradicional', 'Gelado'],
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
@@ -41,7 +45,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'cafe-com-leite.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/cafe-com-leite.svg',
     type: ['Tradicional', 'com leite'],
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
@@ -49,7 +54,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'latte.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/latte.svg',
     type: ['Tradicional', 'com leite'],
     name: 'Latte',
     description:
@@ -58,7 +64,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'capuccino.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/capuccino.svg',
     type: ['Tradicional', 'com leite'],
     name: 'Capuccino',
     description:
@@ -67,7 +74,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'macchiato.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/macchiato.svg',
     type: ['Tradicional', 'com leite'],
     name: 'Macchiato',
     description:
@@ -76,7 +84,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'mocaccino.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/mocaccino.svg',
     type: ['Tradicional', 'com leite'],
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
@@ -84,7 +93,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'chocolate-quente.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/chocolate-quente.svg',
     type: ['especial', 'com leite'],
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
@@ -92,7 +102,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'cubano.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/cubano.svg',
     type: ['especial', 'alcoólico', 'gelado'],
     name: 'Cubano',
     description:
@@ -101,7 +112,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'havaiano.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/havaiano.svg',
     type: ['especial'],
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
@@ -109,7 +121,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'arabe.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/arabe.svg',
     type: ['especial'],
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -117,7 +130,8 @@ export const coffeeData: CoffeeDataInterface[] = [
     amountOfCoffees: 1,
   },
   {
-    image: 'irlandes.svg',
+    image:
+      'https://j040v1t0r-bucket-ignite.s3.amazonaws.com/coffee-delivery/assets/irlandes.svg',
     type: ['especial', 'alcoólico'],
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',

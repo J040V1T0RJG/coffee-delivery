@@ -34,11 +34,7 @@ export function CoffeeCard(coffeeProps: CoffeeDataInterface) {
 
   return (
     <CoffeeCardContainer>
-      <img
-        sizes="64"
-        src={`http://localhost:5173/src/assets/${image}`}
-        alt="expresso americano"
-      />
+      <img sizes="64" src={image} alt="expresso americano" />
       <div className="coffeeTypeList">
         {type.map((typ) => {
           return (

@@ -53,7 +53,7 @@ export function ShoppingCartCafe(coffee: CoffeeDataInterface) {
 
   return (
     <ShoppingCartCafeContainer>
-      <img src={`http://localhost:5173/src/assets/${image}`} alt="arabe" />
+      <img src={image} alt="arabe" />
       <div className="collum">
         <h2>{name}</h2>
         <div className="row">
