@@ -11,3 +11,5 @@ Application to manage a shopping cart of a fictional coffee shop
 - [Vite](https://vitejs.dev)
 - [Styled Components](https://styled-components.com)
 - [React Router DOM](https://reactrouter.com)
+
+design by Millena Kupsinsku Martins
